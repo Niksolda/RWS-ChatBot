@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
-    <title>Chatbot</title>
+    <title>RWS Chatbot</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'chat/style.css' %}">
 </head>
 <body>
-    <h1>Chatbot</h1>
+    <h1>RWS Chatbot</h1>
     <div id="chatbot-container">
         <div id="chatlog"></div>
         <form id="chat-form">
@@ -40,7 +42,7 @@
                 .then(response => response.json())
                 .then(data => {
                     // Add the bot response to the chat log
-                    chatlog.innerHTML += '<p class="bot-message">' + data.botResponse + "\n\nSources: " + data.botSources + '</p>';
+                    chatlog.innerHTML += '<p class="bot-message">' + data.botResponse + "\n\nLinks: " + data.botSources + '</p>';
                     // Scroll to the bottom of the chat log
                     chatlog.scrollTop = chatlog.scrollHeight;
                 });
